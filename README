@@ -1,0 +1,9 @@
+Boilerplate node.js app which can run on heroku.
+
+uses express, mongo, and connect-auth
+
+run the following commands:
+
+npm install -d
+heroku apps:create --stack cedar <app_name_here>
+heroku addons:add mongolab:starter # free 240mg mongo tier
