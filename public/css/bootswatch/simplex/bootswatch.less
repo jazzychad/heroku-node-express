@@ -1,105 +1,142 @@
-// Bootswatch.less
-// Swatch: Simplex
+// Simplex 3.3.1
+// Bootswatch
 // -----------------------------------------------------
 
-// TYPOGRAPHY
-// -----------------------------------------------------
+@import url("//fonts.googleapis.com/css?family=Open+Sans:400,700");
 
-// Make headers black
-h1, h2, h3, h4, h5, h6 {
-	color: @black;
+.btn-shadow(@color) {
+  #gradient > .vertical-three-colors(lighten(@color, 3%), @color, 6%, darken(@color, 3%));
+  filter: none;
+  border: 1px solid darken(@color, 10%);
 }
 
-// NAVBAR
-// -----------------------------------------------------
+// Navbar =====================================================================
 
-// Gray text color
-.navbar .brand, .subnav a {
-	color: @navbarText;
-}
+.navbar {
 
-// Make active item white
-.navbar .nav .active > a,
-.navbar .nav .active > a:hover {
-	background-color: @grayDarker;
-	color: @white;
-}
+  &-inverse {
 
-// Remove text-shadow and make white on hover
-.navbar .nav > li > a {
-	text-shadow: none;
-	&:hover {
-		color: @white;
-		background-color: rgba(256, 256, 256, 0.2);
-	}
-}
-
-// Remove menu item dividers on subnav
-.subnav .nav > li > a {
-	border-left: 0px solid white !important;
-	border-right: 0px solid white !important;
-	color: @grayDark;
-}
-
-.btn-navbar:hover {
-    background-color: darken(@white, 20%);
-    background-position: 0 0;
-}
-
-// FORMS
-// -----------------------------------------------------
-
-// Style search input 
-.search-query {
-	border: 1px solid #CCC;
-	.border-radius(2px);
-	background-color: @white;
-}
-
-// BUTTONS
-// -----------------------------------------------------
-
-// Make buttons boxier and flatter
-.btn {
-  .border-radius(2px);
-  #gradient > .vertical-three-colors(@white, @white, 25%, darken(@white, 10%));
-}
-
-.btn-warning {
-  .caret {
-    border-top-color: @white;
-    .opacity(75);
+    .badge {
+      background-color: #fff;
+      color: @brand-primary;
+    }
   }
 }
 
-.btn-primary {
-  .buttonBackground(lighten(@primaryButtonBackground, 5%), @primaryButtonBackground);
+// Buttons ====================================================================
+
+.btn {
+  font-family: @headings-font-family;
 }
 
-.btn-warning {
-  .buttonBackground(lighten(@orange, 5%), @orange);
+.btn-default,
+.btn-default:hover {
+  .btn-shadow(@btn-default-bg);
 }
 
-.btn-danger {
-  .buttonBackground(lighten(@red, 5%), @red);
+.btn-primary,
+.btn-primary:hover {
+  .btn-shadow(@btn-primary-bg);
 }
 
-.btn-success {
-  .buttonBackground(lighten(@green, 5%), @green);
+.btn-success,
+.btn-success:hover {
+  .btn-shadow(@btn-success-bg);
 }
 
-.btn-info {
-  .buttonBackground(lighten(#5bc0de, 5%), #5bc0de);
+.btn-info,
+.btn-info:hover {
+  .btn-shadow(@btn-info-bg);
 }
 
-.btn-inverse {
-  .buttonBackground(lighten(@purple, 5%), @purple);
+.btn-warning,
+.btn-warning:hover {
+  .btn-shadow(@btn-warning-bg);
 }
 
-// ICONS
-// -----------------------------------------------------
-
-// Make icons gray
-i[class^="icon-"]{
-	opacity: 0.6;
+.btn-danger,
+.btn-danger:hover {
+  .btn-shadow(@btn-danger-bg);
 }
+
+// Typography =================================================================
+
+body {
+  font-weight: 200;
+}
+
+// Tables =====================================================================
+
+th {
+  color: @headings-color;
+}
+
+// Forms ======================================================================
+
+legend {
+  color: @headings-color;
+}
+
+label {
+  font-weight: normal;
+}
+
+.has-warning {
+  .help-block,
+  .control-label {
+    color: @brand-danger;
+  }
+
+  .form-control,
+  .form-control:focus {
+    border-color: @brand-danger;
+  }
+}
+
+.has-error {
+  .help-block,
+  .control-label {
+    color: @brand-primary;
+  }
+
+  .form-control,
+  .form-control:focus {
+    border-color: @brand-primary;
+  }
+}
+
+.has-success {
+  .help-block,
+  .control-label {
+    color: @brand-success;
+  }
+
+  .form-control,
+  .form-control:focus {
+    border-color: @brand-success;
+  }
+}
+
+// Navs =======================================================================
+
+.pager {
+  a {
+    color: @headings-color;
+  }
+
+  a:hover,
+  .active > a, {
+    border-color: @brand-primary;
+    color: #fff;
+  }
+
+  .disabled > a {
+    border-color: @pager-border;
+  }
+}
+
+// Indicators =================================================================
+
+// Progress bars ==============================================================
+
+// Containers =================================================================

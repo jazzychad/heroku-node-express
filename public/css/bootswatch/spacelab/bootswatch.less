@@ -1,174 +1,137 @@
-// Bootswatch.less
-// Swatch: Spacelab
+// Spacelab 3.3.1
+// Bootswatch
 // -----------------------------------------------------
 
-// NAVBAR
-// -----------------------------------------------------
+@import url("//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700");
 
-// navbar style
+.btn-shadow(@color) {
+  #gradient > .vertical-three-colors(lighten(@color, 15%), @color, 50%, darken(@color, 4%));
+  filter: none;
+  border: 1px solid darken(@color, 10%);
+}
+
+// Navbar =====================================================================
+
 .navbar {
-	border-bottom: 1px solid #CACACA;
-	
-	.brand {
-		font-size: 20px;
-		font-weight: bold;
-		color: @textColor;
-	
-		&:hover {
-			color: @linkColor;
-		}
-	}
-}
 
-// navbar dropshadow
-.navbar .navbar-inner {
-	.box-shadow(0 1px 0 rgba(255,255,255,0.4));
-	.box-shadow(0 0 10px rgba(0,0,0,0.1));
-}
+  .btn-shadow(@navbar-default-bg);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 
-// nav item typography
-.navbar .nav > li > a {
-	font-weight: bold;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-}
+  &-inverse {
+    .btn-shadow(@navbar-inverse-bg);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 
-.navbar .nav .active > a {
-	background-color: transparent;
-	color: @textColor;
-	
-	&:hover {
-		background-color: transparent;
-		color: @linkColor;
-	}
-}
+    .badge {
+      background-color: #fff;
+      color: @navbar-inverse-bg;
+    }
+  }
 
-.navbar .nav > li > a:hover,
-.navbar .nav .open.dropdown .dropdown-toggle {
-	color: @linkColor !important;
-}
+  .badge {
+    text-shadow: none;
+  }
 
-.navbar .nav .dropdown-toggle .caret {
-	border-top-color: @textColor;
-	opacity: 1;
-}
+  &-nav > li > a,
+  &-nav > li > a:hover {
+    padding-top: @navbar-padding-vertical + 2px;
+    padding-bottom: @navbar-padding-vertical - 2px;
+    .transition(color ease-in-out .2s);
+  }
+  
+  &-brand,
+  &-brand:hover {
+    .transition(color ease-in-out .2s);
+  }
 
-.navbar .nav .open.dropdown .caret,
-.navbar .nav .dropdown-toggle:hover .caret {
-	border-top-color: @linkColor !important;
-}
+  .caret,
+  .caret:hover {
+    .transition(border-color ease-in-out .2s);
+  }
 
-.subnav .nav > li > a {
-	font-weight: bold;
-	color: #777;
-	
-	&:hover {
-		color: @linkColor;
-	}
-}
-
-.subnav .nav > li.active > a {
-	color: @textColor;
-	
-	&:hover {
-		color: @grayDark;
-	}
-}
-
-.navbar-search .search-query,
-.navbar-search .search-query:hover {
-	border: none;
-	color: @grayLight;
-	.placeholder(@grayLight);
-	.box-shadow(inset 0 1px 2px rgba(0, 0, 0, 0.5));
-	
-    &:focus,
-    &.focused {
-		.box-shadow(inset 0 1px 2px rgba(0, 0, 0, 0.5));
-		color: @textColor;
-	}
-}
-
-.navbar .nav-collapse > .nav li > a {
-
-	color: @textColor;
-
-	.caret {
-		border-top-color: @grayLight;
-	}
-}
-
-
-.navbar .nav-collapse > .nav li > a:hover {
-	text-shadow: none;
-	color: @linkColor;
-	background-color: transparent;
-	
-	.caret {
-		border-top-color: @white;
-	}
-}
-
-
-// BUTTON
-// -----------------------------------------------------
-
-.btn {
-	.buttonBackground(#F4F4F4, #ECECEC);
-}
-
-.btn-warning {
-  .caret {
-    border-top-color: @white;
-    .opacity(75);
+  .dropdown-menu {
+    text-shadow: none;
   }
 }
 
-.btn-primary {
-	.buttonBackground(#909090, #3F3F3F);
+// Buttons ====================================================================
+
+.btn {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+
+  &-default {
+    .btn-shadow(@btn-default-bg);
+
+    &:hover {
+      .btn-shadow(darken(@btn-default-bg, 4%));
+    }
+  }
+
+  &-primary {
+    .btn-shadow(@btn-primary-bg);
+
+    &:hover {
+      .btn-shadow(darken(@btn-primary-bg, 4%));
+    }
+  }
+
+  &-success {
+    .btn-shadow(@btn-success-bg);
+
+    &:hover {
+      .btn-shadow(darken(@btn-success-bg, 4%));
+    }
+  }
+
+  &-info {
+    .btn-shadow(@btn-info-bg);
+
+    &:hover {
+      .btn-shadow(darken(@btn-info-bg, 4%));
+    }
+  }
+
+  &-warning {
+    .btn-shadow(@btn-warning-bg);
+
+    &:hover {
+      .btn-shadow(darken(@btn-warning-bg, 4%));
+    }
+  }
+
+  &-danger {
+    .btn-shadow(@btn-danger-bg);
+
+    &:hover {
+      .btn-shadow(darken(@btn-danger-bg, 4%));
+    }
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+  }
 }
 
-.btn-warning {
-  .buttonBackground(lighten(@yellow, 15%), @yellow);
+// Typography =================================================================
+
+// Tables =====================================================================
+
+// Forms ======================================================================
+
+// Navs =======================================================================
+
+// Indicators =================================================================
+
+// Progress bars ==============================================================
+
+// Containers =================================================================
+
+.panel {
+
+  &-primary {
+    .panel-title {
+      color: #fff;
+    }
+  }
 }
-
-.btn-danger {
-  .buttonBackground(lighten(#DA2D2D, 15%), #DA2D2D);
-}
-
-.btn-success {
-  .buttonBackground(#8ADD6D, #60B044);
-}
-
-.btn-info {
-  .buttonBackground(lighten(#4488BB, 15%), #4488BB);
-}
-
-.btn-inverse {
-  .buttonBackground(lighten(@purple, 5%), @purple);
-}
-
-// FORMS
-// -----------------------------------------------------
-
-
-// Warning
-.control-group.warning {
-  .formFieldState(#E29235, #E29235, @warningBackground);
-}
-// Error
-.control-group.error {
-  .formFieldState(#C00, #C00, @errorBackground);
-}
-// Success
-.control-group.success {
-  .formFieldState(#2BA949, #2BA949, @successBackground);
-}
-
-
-// LABELS
-// -----------------------------------------------------
-
-.label-important { background-color: #BD2C00; }
-.label-warning   { background-color: #E3E84D; }
-.label-success   { background-color: #6CC644; }
-.label-info      { background-color: #4183C4; }
