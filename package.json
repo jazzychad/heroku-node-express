@@ -6,10 +6,10 @@
     "express": "4.10.7",
     "jade": "1.8.2",
     "ejs": "0.7.1",
-    "mongoose": "2.5.10",
+    "mongoose": "3.8.21",
     "shortid": "1.0.6",
     "MD5": "latest",
-    "connect-auth": "0.5.1"
+    "connect-auth": "0.6.1"
   },
   "engines": {
     "node": "0.10.x",
