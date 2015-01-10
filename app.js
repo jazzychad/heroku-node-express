@@ -5,7 +5,11 @@
 
 var express = require('express')
 , routes = require('./routes')
-, mongoose = require('mongoose');
+, mongoose = require('mongoose')
+, bodyParser = require('body-parser')
+, methodOverride = require('method-override')
+, serveStatic = require('serve-static')
+, errorHandler = require('errorhandler');
 
 mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/mongo_test");
 
@@ -13,26 +17,24 @@ var app = express(); //module.exports = express.createServer();
 
 // Configuration
 
-app.configure(function(){
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(express.static(__dirname + '/public'));
-  app.use(app.router);
-});
-
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-});
-
-app.configure('production', function(){
-  app.use(express.errorHandler());
-});
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(serveStatic(__dirname + '/public'));
 
 // Routes
 
 app.get('/', routes.index);
+
+// load errorHandler after routes
+
+if (process.env.NODE_ENV !== "production") {
+  app.use(errorHandler({ dumpExceptions: true, showStack: true }));
+} else {
+  app.use(errorHandler());
+}
+
 
 var port = process.env.PORT || 3000;
 app.listen(port, function(){
